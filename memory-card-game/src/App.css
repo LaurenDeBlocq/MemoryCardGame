@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("./resources/images/background.png");
 }
 
@@ -35,6 +35,42 @@ body{
 
 /* Header Styling */
 .header {
-  height: "130px";
+  display: grid;
+  grid-template-columns: 480px 480px 480px;
+  padding-top: 32px;
+}
+
+.header--text {
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0;
+  grid-column: 2;
+  justify-self: center;
+}
+
+.header--button-section {
+  grid-column: 3;
   display: flex;
+  padding-right: 40px;
+  justify-content: space-evenly;
+}
+
+.header--button {
+  padding: 16px;
+  font-weight: 700;
+  font-size: 20px;
+  height: fit-content;
+
+  border-radius: 8px;
+  border: none;
+  color: white;
+  box-shadow: none;
+}
+
+.header--button-restart {
+  background-color: #f4a236;
+}
+
+.header--button-exit {
+  background-color: #d4190c;
 }
