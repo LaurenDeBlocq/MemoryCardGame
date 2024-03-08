@@ -1,7 +1,76 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background-image: url("./resources/images/background.png");
 }
 
+#root {
+  color: white;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Font styling */
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Header Styling */
+.header {
+  display: grid;
+  grid-template-columns: 480px 480px 480px;
+  padding-top: 32px;
+}
+
+.header--text {
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0;
+  grid-column: 2;
+  justify-self: center;
+}
+
+.header--button-section {
+  grid-column: 3;
+  display: flex;
+  padding-right: 40px;
+  justify-content: space-evenly;
+}
+
+.header--button {
+  padding: 16px;
+  font-weight: 700;
+  font-size: 20px;
+  height: fit-content;
+
+  border-radius: 8px;
+  border: none;
+  color: white;
+  box-shadow: none;
+}
+
+.header--button-restart {
+  background-color: #f4a236;
+}
+
+.header--button-exit {
+  background-color: #d4190c;
+}
