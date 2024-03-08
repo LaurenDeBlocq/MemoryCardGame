@@ -3,7 +3,38 @@ body{
 }
 
 #root {
-  
+  color: white;
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Font styling */
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Header Styling */
+.header {
+  height: "130px";
+  display: flex;
+}
