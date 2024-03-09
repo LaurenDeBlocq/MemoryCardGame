@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
+import cardBack from "../resources/images/cardBack.png";
+
 const Card = (props) => {
   console.log(props.data.img);
   return (
     <>
       <img
         className="card--image"
-        src={props.data.isTurnedOver ? props.data.img : props.data.defaultImg}
+        src={props.data.isTurnedOver ? props.data.img : cardBack}
         alt={
           props.data.isTurnedOver
             ? `image for ${props.data.number} of ${props.data.suit}`

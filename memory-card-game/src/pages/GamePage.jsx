@@ -48,9 +48,7 @@ const GamePage = () => {
             suit: cardSuit,
             number: cardNumber,
             isTurnedOver: false,
-
-            defaultImg: "../resources/images/cardBack",
-            img: `../resources/data/cardImages/${cardSuit}/${cardNumber}`,
+            img: `/assets/cardImages/${cardSuit}/${cardNumber}.png`,
           });
         }
       } else {
@@ -60,15 +58,13 @@ const GamePage = () => {
             number: "Joker_1",
             isTurnedOver: false,
 
-            defaultImg: "../resources/images/cardBack",
-            img: "../resources/data/cardImages/jokers/Joker_1",
+            img: "/assets/cardImages/jokers/Joker_1.png",
           },
           {
             suit: cardSuit,
             number: "Joker_2",
             isTurnedOver: false,
-            defaultImg: "../resources/images/cardBack",
-            img: "../resources/data/cardImages/jokers/Joker_2",
+            img: "/assets/cardImages/jokers/Joker_2.png",
           }
         );
       }
