@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./error-page";
 import StartPage from "./pages/StartPage";
+import GamePage from "./pages/GamePage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,12 +19,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <StartPage />,
       },
-      // What pages I think I need to add
-      //
-      // {
-      //   path: "show/:showId",
-      //   element: <GamePage />,
-      // },
+      {
+        path: "game/",
+        element: <GamePage />,
+      },
       // {
       //   path: "leaderboard",
       //   element: <EndPage />,

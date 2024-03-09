@@ -1,11 +1,12 @@
 body {
   background-image: url("./resources/images/background.png");
+
+  font-family: "Poppins", sans-serif;
 }
 
 #root {
   color: white;
   text-align: center;
-  font-family: "Poppins", sans-serif;
 }
 
 /* Font styling */
@@ -73,4 +74,56 @@ body {
 
 .header--button-exit {
   background-color: #d4190c;
+}
+
+/* Starting page styling */
+.start-page--text {
+  font-size: 50px;
+  padding: 80px 0;
+}
+
+.start-page--player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 90px;
+}
+
+.start-page--player-block {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  align-items: center;
+}
+
+.start-page--player-image {
+  height: 220px;
+  width: 180px;
+  padding-bottom: 40px;
+}
+
+.start-page--input {
+  height: 48px;
+  width: 374px;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 16px;
+  padding-left: 12px;
+  color: black;
+  font-weight: 500;
+}
+
+.start-page--start-button {
+  height: 64px;
+  width: 220px;
+
+  background-color: #0ab169;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
 }
