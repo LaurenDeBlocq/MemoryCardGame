@@ -50,7 +50,7 @@ const StartPage = () => {
       </div>
       <Link to={"game/"}>
         <button className="start-page--start-button" onClick={handleStart}>
-          Let's play!
+          Let&apos;s play!
         </button>
       </Link>
     </>
