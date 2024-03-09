@@ -14,9 +14,9 @@ const GameBoard = ({ cardList }) => {
   cardList.forEach((element) => {
     dispatch(loadCards(element));
   });
-  const handleClick = (event) => {
+  const handleClick = (event, cardData) => {
     event.preventDefault();
-    console.log(event);
+    console.log(cardData);
   };
   const playingCards = useSelector(selectCards);
 

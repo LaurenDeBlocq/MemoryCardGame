@@ -7,7 +7,7 @@ const Card = (props) => {
     <>
       <img
         onClick={(event) => {
-          props.handleClick(event);
+          props.handleClick(event, props.data);
         }}
         className="card--image"
         src={props.data.isTurnedOver ? props.data.img : cardBack}
