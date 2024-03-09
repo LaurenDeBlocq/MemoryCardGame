@@ -1,7 +1,22 @@
 import playerOne from "../resources/images/player1.png";
 import playerTwo from "../resources/images/player2.png";
 
+import { setName as setPlayerOneName } from "../slices/playerOneSlice";
+import { setName as setPlayerTwoName } from "../slices/playerTwoSlice";
+
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 const StartPage = () => {
+  const dispatch = useDispatch();
+  const handleStart = () => {
+    const playerOneName = document.getElementById("player-one-name").value;
+    const playerTwoName = document.getElementById("player-two-name").value;
+
+    dispatch(setPlayerOneName(playerOneName));
+    dispatch(setPlayerTwoName(playerTwoName));
+  };
+
   return (
     <>
       <h1 className="start-page--text">Are you ready to play?</h1>
@@ -33,7 +48,11 @@ const StartPage = () => {
           />
         </div>
       </div>
-      <button className="start-page--start-button">Let's play!</button>
+      <Link to={"game/"}>
+        <button className="start-page--start-button" onClick={handleStart}>
+          Let's play!
+        </button>
+      </Link>
     </>
   );
 };
