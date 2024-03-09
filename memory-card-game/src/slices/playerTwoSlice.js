@@ -19,4 +19,12 @@ export const playerTwoSlice = createSlice({
 
 export const { setName, incrementScore } = playerTwoSlice.actions;
 
+export const selectName = (state) => {
+  state.playerOne.name;
+};
+
+export const selectScore = (state) => {
+  state.playerOne.score;
+};
+
 export default playerTwoSlice.reducer;

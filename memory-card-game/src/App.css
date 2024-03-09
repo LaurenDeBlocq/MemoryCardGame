@@ -127,3 +127,17 @@ body {
   font-weight: 700;
   color: white;
 }
+
+/* Game Page styling */
+.game {
+  display: flex;
+  padding: 0px 50px;
+  justify-content: space-between;
+}
+
+.game--player-block {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
+}
