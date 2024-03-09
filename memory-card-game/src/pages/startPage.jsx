@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const StartPage = () => {
   const dispatch = useDispatch();
+
   const handleStart = () => {
     const playerOneName = document.getElementById("player-one-name").value;
     const playerTwoName = document.getElementById("player-two-name").value;
@@ -50,7 +51,7 @@ const StartPage = () => {
       </div>
       <Link to={"game/"}>
         <button className="start-page--start-button" onClick={handleStart}>
-          Let's play!
+          Let&apos;s play!
         </button>
       </Link>
     </>
