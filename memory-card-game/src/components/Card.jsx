@@ -5,6 +5,7 @@ const Card = (props) => {
   return (
     <>
       <img
+        // onClick={props.handleClick()}
         className="card--image"
         src={props.data.isTurnedOver ? props.data.img : cardBack}
         alt={
