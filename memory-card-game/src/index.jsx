@@ -35,10 +35,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <div>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

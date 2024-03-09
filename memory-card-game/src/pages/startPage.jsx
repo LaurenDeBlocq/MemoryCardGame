@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const StartPage = () => {
   const dispatch = useDispatch();
+
   const handleStart = () => {
     const playerOneName = document.getElementById("player-one-name").value;
     const playerTwoName = document.getElementById("player-two-name").value;

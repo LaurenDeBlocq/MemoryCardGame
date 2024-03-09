@@ -19,6 +19,64 @@ const GamePage = () => {
   const playerOneScore = useSelector(selectPlayerOneScore);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
 
+  const createCardData = () => {
+    const cardData = [];
+
+    for (let i = 0; i < 5; i++) {
+      const cardSuit =
+        i === 0
+          ? "clubs"
+          : i === 1
+          ? "diamonds"
+          : i === 2
+          ? "hearts"
+          : i === 3
+          ? "spades"
+          : "joker";
+
+      if (cardSuit !== "joker") {
+        for (let n = 0; n < 13; n++) {
+          let cardNumber;
+          const faceCards = ["A", "J", "Q", "K"];
+          if (n < 9) {
+            cardNumber = n + 2;
+          } else {
+            cardNumber = faceCards[n - 9];
+          }
+
+          cardData.push({
+            suit: cardSuit,
+            number: cardNumber,
+            isTurnedOver: false,
+
+            defaultImg: "../resources/images/cardBack",
+            img: `../resources/data/cardImages/${cardSuit}/${cardNumber}`,
+          });
+        }
+      } else {
+        cardData.push(
+          {
+            suit: cardSuit,
+            number: "Joker_1",
+            isTurnedOver: false,
+
+            defaultImg: "../resources/images/cardBack",
+            img: "../resources/data/cardImages/jokers/Joker_1",
+          },
+          {
+            suit: cardSuit,
+            number: "Joker_2",
+            isTurnedOver: false,
+            defaultImg: "../resources/images/cardBack",
+            img: "../resources/data/cardImages/jokers/Joker_2",
+          }
+        );
+      }
+    }
+
+    return cardData;
+  };
+
   return (
     <>
       <div className="game">
@@ -32,7 +90,7 @@ const GamePage = () => {
           <h3 className="game--player-score">{playerOneScore}</h3>
         </div>
         <div className="game--game-block">
-          <GameBoard />
+          <GameBoard className="game--game-board" cardList={createCardData()} />
         </div>
         <div className="game--player-block">
           <img
