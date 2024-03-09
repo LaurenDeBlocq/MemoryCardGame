@@ -6,13 +6,13 @@ export const cardSlice = createSlice({
     cards: [],
   },
   reducers: {
-    loadCard: (state, action) => {
-      state.cards.push(action.payload);
+    loadCards: (state, action) => {
+      state.cards = [...state.cards, action.payload];
     },
   },
 });
 
-export const { loadCard } = cardSlice.actions;
+export const { loadCards } = cardSlice.actions;
 
 export const selectCards = (state) => state.card.cards;
 // export const selectScore = (state) => state.card.score;

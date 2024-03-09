@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Card from "./Card";
-import { loadCard, selectCards } from "../slices/cardSlice";
+import { loadCards, selectCards } from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const GameBoard = ({ cardList }) => {
@@ -11,20 +11,21 @@ const GameBoard = ({ cardList }) => {
     cardList[i] = cardList[j];
     cardList[j] = k;
   }
-  // console.log(cardList);
-  cardList.forEach((card) => dispatch(loadCard(card)));
-  //   const handleClick = (event) => {
-  //     event.preventDefault();
-  //     console.log(event);
-  //   };
-  const cardsToPlay = useSelector(selectCards);
-  console.log(cardsToPlay);
+  cardList.forEach((element) => {
+    dispatch(loadCards(element));
+  });
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(event);
+  };
+  const playingCards = useSelector(selectCards);
 
-  const cardsToLoad = useSelector(selectCards).map((card) => {
+  const cardsToLoad = playingCards.map((card) => {
     return (
       <Card
-        key={cardList.indexOf(card)}
-        // handleClick={handleClick}
+        key={playingCards.indexOf(card)}
+        id={playingCards.indexOf(card)}
+        handleClick={handleClick}
         data={card}
       />
     );
