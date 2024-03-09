@@ -10,7 +10,7 @@ const GameBoard = ({ cardList }) => {
   }
 
   const cardsToLoad = cardList.map((card) => {
-    return <Card key={card.index} data={card} />;
+    return <Card key={cardList.indexOf(card)} data={card} />;
   });
   return <>{cardsToLoad}</>;
 };
