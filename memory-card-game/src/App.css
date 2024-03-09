@@ -1,6 +1,6 @@
 body {
   background-image: url("./resources/images/background.png");
-
+  width: 100%;
   font-family: "Poppins", sans-serif;
 }
 
@@ -131,7 +131,9 @@ body {
 /* Game Page styling */
 .game {
   display: flex;
-  padding: 0px 50px;
+  padding: 0px 45px;
+  padding-top: 40px;
+  max-width: 1350px;
   justify-content: space-between;
 }
 
@@ -140,4 +142,34 @@ body {
     rgba(255, 255, 255, 0.6),
     rgba(255, 255, 255, 0.1)
   );
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 220px;
+  height: 344px;
+}
+
+.game--player-img {
+  max-height: 180px;
+
+  padding-top: 28px;
+}
+
+.game--player-name {
+  height: 30px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.game--player-score {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.game--game-block {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
