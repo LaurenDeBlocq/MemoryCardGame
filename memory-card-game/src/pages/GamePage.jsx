@@ -10,6 +10,7 @@ import {
   selectScore as selectPlayerOneScore,
 } from "../slices/playerOneSlice";
 import { useSelector } from "react-redux";
+import GameBoard from "../components/GameBoard";
 
 const GamePage = () => {
   const playerOneName = useSelector(selectPlayerOneName);
@@ -17,6 +18,7 @@ const GamePage = () => {
 
   const playerOneScore = useSelector(selectPlayerOneScore);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
+
   return (
     <>
       <div className="game">
@@ -30,7 +32,7 @@ const GamePage = () => {
           <h3 className="game--player-score">{playerOneScore}</h3>
         </div>
         <div className="game--game-block">
-          <p>Actual Game block!</p>
+          <GameBoard />
         </div>
         <div className="game--player-block">
           <img
