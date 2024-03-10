@@ -31,11 +31,13 @@ const GameBoard = ({ handleMatch }) => {
   useEffect(() => {
     let cardsMatch;
     if (chosenCards.length === 2) {
-      cardsMatch = checkMatch();
-      if (cardsMatch) {
-        handleMatch();
-      }
-      dispatch(removeCardsFromChosen());
+      setTimeout(() => {
+        cardsMatch = checkMatch();
+        if (cardsMatch) {
+          handleMatch();
+        }
+        dispatch(removeCardsFromChosen());
+      }, [2000]);
     }
   }, [chosenCards, dispatch, handleMatch]);
 
