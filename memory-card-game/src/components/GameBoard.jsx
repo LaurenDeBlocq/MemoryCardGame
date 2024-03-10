@@ -5,7 +5,7 @@ import {
   selectCards,
   selectChosenCards,
   toggleCard,
-  removeCardFromPlay,
+  removeCardsFromChosen,
 } from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -32,11 +32,12 @@ const GameBoard = ({ handleMatch }) => {
     let cardsMatch;
     if (chosenCards.length === 2) {
       cardsMatch = checkMatch();
+      if (cardsMatch) {
+        handleMatch();
+      }
+      dispatch(removeCardsFromChosen());
     }
-    if (cardsMatch) {
-      handleMatch();
-    }
-  }, [chosenCards]);
+  }, [chosenCards, dispatch, handleMatch]);
 
   const toggleTurnedOver = (cardId) => {
     dispatch(toggleCard(cardId));
@@ -64,19 +65,10 @@ const GameBoard = ({ handleMatch }) => {
       matchResult = false;
     }
 
-    let nextTurn = false;
-    // setTimeout(() => {
-    nextTurn = true;
-    if (nextTurn) {
-      dispatch(toggleCard(playingCards.indexOf(cardOne)));
-      dispatch(toggleCard(playingCards.indexOf(cardTwo)));
-      toggleActivePlayer();
-    }
-    // }, [2000]);
-    if (matchResult) {
-      dispatch(removeCardFromPlay(playingCards.indexOf(cardOne)));
-      dispatch(removeCardFromPlay(playingCards.indexOf(cardTwo)));
-    }
+    dispatch(toggleCard(playingCards.indexOf(cardOne)));
+    dispatch(toggleCard(playingCards.indexOf(cardTwo)));
+    toggleActivePlayer();
+
     return matchResult;
   };
 

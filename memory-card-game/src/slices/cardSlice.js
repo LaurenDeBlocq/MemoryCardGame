@@ -21,6 +21,11 @@ export const cardSlice = createSlice({
     removeCardFromPlay: (state, action) => {
       state.cards[action.payload].isRemoved = true;
     },
+    removeCardsFromChosen: (state) => {
+      console.log("popped!");
+      state.chosen.pop();
+      state.chosen.pop();
+    },
   },
   selectors: {
     selectCards: (state) => state.cards,
@@ -30,13 +35,24 @@ export const cardSlice = createSlice({
     },
     selectChosenCards: (state) =>
       state.cards.filter((card) => card.isTurnedOver),
+    selectChosenCardsIndex: (state) => state.chosen,
   },
 });
 
-export const { loadCards, loadChosenCard, toggleCard, removeCardFromPlay } =
-  cardSlice.actions;
+export const {
+  loadCards,
+  loadChosenCard,
+  toggleCard,
+  removeCardFromPlay,
+  removeCardsFromChosen,
+} = cardSlice.actions;
 
-export const { selectCards, selectOneCard, selectChosenCards, getCardIndex } =
-  cardSlice.selectors;
+export const {
+  selectCards,
+  selectOneCard,
+  selectChosenCards,
+  getCardIndex,
+  selectChosenCardsIndex,
+} = cardSlice.selectors;
 
 export default cardSlice.reducer;

@@ -13,7 +13,11 @@ import {
   selectActive as selectPlayerOneActive,
   incrementScore as incrementPlayerOneScore,
 } from "../slices/playerOneSlice";
-import { loadCards } from "../slices/cardSlice";
+import {
+  loadCards,
+  removeCardFromPlay,
+  selectChosenCardsIndex,
+} from "../slices/cardSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 import GameBoard from "../components/GameBoard";
@@ -25,10 +29,12 @@ const GamePage = () => {
   const playerOneScore = useSelector(selectPlayerOneScore);
 
   const playerOneActive = useSelector(selectPlayerOneActive);
-  // const playerTwoActive = useSelector(selectPlayerTwoActive);
 
   const playerTwoName = useSelector(selectPlayerTwoName);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
+  const chosenCards = useSelector(selectChosenCardsIndex);
+
+  console.log(chosenCards);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -44,6 +50,9 @@ const GamePage = () => {
     playerOneActive
       ? dispatch(incrementPlayerOneScore())
       : dispatch(incrementPlayerTwoScore());
+
+    dispatch(removeCardFromPlay(chosenCards[0]));
+    dispatch(removeCardFromPlay(chosenCards[1]));
   };
 
   useMemo(() => {

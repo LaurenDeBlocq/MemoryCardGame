@@ -2,7 +2,6 @@
 import cardBack from "../resources/images/cardBack.png";
 
 const Card = (props) => {
-  console.log("loaded");
   return (
     <>
       <img
