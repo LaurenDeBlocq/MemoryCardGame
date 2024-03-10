@@ -1,15 +1,27 @@
+import { Link, useMatches } from "react-router-dom";
+
 const Header = () => {
+  const matches = useMatches();
   return (
     <header className="header">
       <div className="header--grid"></div>
       <h2 className="header--text">Memory</h2>
-      <div className="header--button-section">
-        <button className="header--button header--button-restart poppins-bold">
+      <div
+        className="header--link-section"
+        style={{
+          visibility: matches[1].pathname === "/game/" ? "visible" : "hidden",
+        }}
+      >
+        <Link
+          to={"/game/"}
+          className="header--link header--link-restart poppins-bold"
+          reloadDocument
+        >
           Restart Game
-        </button>
-        <button className="header--button header--button-exit poppins-bold">
+        </Link>
+        <Link to={"/"} className="header--link header--link-exit poppins-bold">
           Exit Game
-        </button>
+        </Link>
       </div>
     </header>
   );
