@@ -2,12 +2,13 @@
 import cardBack from "../resources/images/cardBack.png";
 
 const Card = (props) => {
-  console.log(props);
   return (
     <>
       <img
+        id={props.id}
+        data={props.data}
         onClick={(event) => {
-          props.handleClick(event, props.data);
+          props.handleClick(event, props.data, props.id);
         }}
         className="card--image"
         src={props.data.isTurnedOver ? props.data.img : cardBack}

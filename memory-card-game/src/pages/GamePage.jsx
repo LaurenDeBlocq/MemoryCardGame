@@ -9,7 +9,9 @@ import {
   selectName as selectPlayerOneName,
   selectScore as selectPlayerOneScore,
 } from "../slices/playerOneSlice";
-import { useSelector } from "react-redux";
+import { loadCards } from "../slices/cardSlice";
+
+import { useDispatch, useSelector } from "react-redux";
 import GameBoard from "../components/GameBoard";
 
 const GamePage = () => {
@@ -18,6 +20,7 @@ const GamePage = () => {
 
   const playerOneScore = useSelector(selectPlayerOneScore);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
+  const dispatch = useDispatch();
 
   const createCardData = () => {
     const cardData = [];
@@ -73,6 +76,16 @@ const GamePage = () => {
     return cardData;
   };
 
+  const cardList = createCardData();
+
+  for (let i = cardList.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let k = cardList[i];
+    cardList[i] = cardList[j];
+    cardList[j] = k;
+  }
+  dispatch(loadCards(cardList));
+
   return (
     <>
       <div className="game">
@@ -86,7 +99,7 @@ const GamePage = () => {
           <h3 className="game--player-score">{playerOneScore}</h3>
         </div>
         <div className="game--game-block">
-          <GameBoard className="game--game-board" cardList={createCardData()} />
+          <GameBoard className="game--game-board" />
         </div>
         <div className="game--player-block">
           <img

@@ -1,24 +1,34 @@
 /* eslint-disable react/prop-types */
 import Card from "./Card";
-import { loadCards, selectCards } from "../slices/cardSlice";
+import {
+  loadChosenCard,
+  selectCards,
+  selectChosenCards,
+  toggleCard,
+} from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-const GameBoard = ({ cardList }) => {
-  const dispatch = useDispatch();
-  for (let i = cardList.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    let k = cardList[i];
-    cardList[i] = cardList[j];
-    cardList[j] = k;
-  }
-  cardList.forEach((element) => {
-    dispatch(loadCards(element));
-  });
-  const handleClick = (event, cardData) => {
-    event.preventDefault();
-    console.log(cardData);
-  };
+const GameBoard = () => {
   const playingCards = useSelector(selectCards);
+  const chosenCards = useSelector(selectChosenCards);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(chosenCards.length);
+  }, [chosenCards]);
+
+  const toggleTurnedOver = (cardId) => {
+    dispatch(toggleCard(cardId));
+  };
+
+  const handleClick = (event, cardData, cardId) => {
+    event.preventDefault();
+
+    dispatch(loadChosenCard(cardId));
+    toggleTurnedOver(cardId);
+    console.log(cardData, cardId);
+  };
 
   const cardsToLoad = playingCards.map((card) => {
     return (
