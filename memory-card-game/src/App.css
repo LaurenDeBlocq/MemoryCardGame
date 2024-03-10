@@ -206,3 +206,84 @@ body {
   bottom: 220px;
   right: 50px;
 }
+
+/* Leaderboard styling */
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+}
+
+.leaderboard--text h2 {
+  font-size: 48px;
+  margin: 0;
+}
+.leaderboard--text h1 {
+  font-size: 72px;
+  margin: 0;
+}
+
+.leaderboard--winning-player {
+  height: 232px;
+  width: 332px;
+}
+
+.leaderboard--winner-container {
+  display: flex;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.leaderboard--winner-token {
+  position: absolute;
+  left: -50px;
+  top: 26px;
+  width: 45px;
+}
+
+.leaderboard--winner {
+  background-image: linear-gradient(#ffd975, #ffffff);
+}
+.leaderboard--loser {
+  background-color: white;
+}
+
+.leaderboard--info {
+  display: flex;
+  width: 535px;
+  height: 100px;
+  align-content: center;
+  justify-content: space-around;
+
+  color: #0d4477;
+  font-size: 20px;
+  text-align: center;
+
+  border-radius: 8px;
+  border: none;
+}
+
+.leaderboard--info p {
+  padding-top: 12px;
+}
+
+.leaderboard--info-img {
+  height: 74px;
+  width: 74px;
+  align-self: center;
+}
+
+.play-again {
+  background-color: #a7daff;
+  color: #164464;
+  width: 164px;
+  height: 36px;
+  text-align: center;
+  padding-top: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+}

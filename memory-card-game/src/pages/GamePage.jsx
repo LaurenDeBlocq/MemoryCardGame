@@ -17,7 +17,8 @@ import { loadCards } from "../slices/cardSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 import GameBoard from "../components/GameBoard";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GamePage = () => {
   const playerOneName = useSelector(selectPlayerOneName);
@@ -29,6 +30,14 @@ const GamePage = () => {
   const playerTwoName = useSelector(selectPlayerTwoName);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const totalScore = playerOneScore + playerTwoScore;
+    if (totalScore == 54) {
+      navigate("/leaderboard");
+    }
+  }, [playerOneScore, playerTwoScore, navigate]);
 
   const handleMatch = () => {
     // needs to remove cards from play and add points to relevant player
