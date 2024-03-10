@@ -135,6 +135,7 @@ body {
   padding-top: 40px;
   max-width: 1350px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .game--player-block {
@@ -180,4 +181,28 @@ body {
   height: 112px;
   width: 72px;
   padding: 10px;
+}
+
+.game--active-player {
+  width: 220px;
+  height: 64px;
+  background-color: white;
+  border-radius: 8px;
+  color: #489dda;
+  text-align: center;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.game--player-one-active {
+  position: fixed;
+  bottom: 220px;
+  left: 50px;
+}
+
+.game--player-two-active {
+  position: fixed;
+  bottom: 220px;
+  right: 50px;
 }

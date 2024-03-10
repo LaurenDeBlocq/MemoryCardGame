@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
   toggleActive as togglePlayerTwoActive,
-  // selectActive as selectPlayerTwoActive,
+  selectActive as selectPlayerTwoActive,
   incrementScore as incrementPlayerTwoScore,
 } from "../slices/playerTwoSlice";
 import {
@@ -24,16 +24,25 @@ const GameBoard = () => {
   const chosenCards = useSelector(selectChosenCards);
 
   const playerOneActive = useSelector(selectPlayerOneActive);
-
-  console.log(chosenCards);
+  const playerTwoActive = useSelector(selectPlayerTwoActive);
+  console.log(chosenCards, playerOneActive);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(chosenCards.length);
+    let cardsMatch;
+    if (chosenCards.length === 2) {
+      cardsMatch = checkMatch();
+      console.log(cardsMatch);
+    }
   }, [chosenCards]);
 
   const toggleTurnedOver = (cardId) => {
     dispatch(toggleCard(cardId));
+  };
+
+  const toggleActivePlayer = () => {
+    dispatch(togglePlayerOneActive());
+    dispatch(togglePlayerTwoActive());
   };
 
   const checkMatch = () => {
@@ -56,12 +65,8 @@ const GameBoard = () => {
     dispatch(toggleCard(playingCards.indexOf(cardOne)));
     dispatch(toggleCard(playingCards.indexOf(cardTwo)));
 
+    toggleActivePlayer();
     return matchResult;
-  };
-
-  const toggleActivePlayer = () => {
-    dispatch(togglePlayerOneActive());
-    dispatch(togglePlayerTwoActive());
   };
 
   const handleMatch = () => {
@@ -85,7 +90,6 @@ const GameBoard = () => {
     if (cardsMatch) {
       handleMatch();
     }
-    toggleActivePlayer();
   };
 
   const cardsToLoad = playingCards.map((card) => {
@@ -98,7 +102,23 @@ const GameBoard = () => {
       />
     );
   });
-  return <>{cardsToLoad}</>;
+  return (
+    <>
+      <div
+        className="game--active-player game--player-one-active"
+        style={{ display: playerOneActive ? "block" : "none" }}
+      >
+        It&apos;s your turn!
+      </div>
+      {cardsToLoad}
+      <div
+        className="game--active-player game--player-two-active"
+        style={{ display: playerTwoActive ? "block" : "none" }}
+      >
+        It&apos;s your turn!
+      </div>
+    </>
+  );
 };
 
 export default GameBoard;
