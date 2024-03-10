@@ -22,7 +22,6 @@ export const cardSlice = createSlice({
       state.cards[action.payload].isRemoved = true;
     },
     removeCardsFromChosen: (state) => {
-      console.log("popped!");
       state.chosen.pop();
       state.chosen.pop();
     },
