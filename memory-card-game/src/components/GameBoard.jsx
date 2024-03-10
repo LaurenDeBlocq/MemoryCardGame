@@ -11,15 +11,15 @@ import { useEffect } from "react";
 import {
   toggleActive as togglePlayerTwoActive,
   selectActive as selectPlayerTwoActive,
-  incrementScore as incrementPlayerTwoScore,
+  // incrementScore as incrementPlayerTwoScore,
 } from "../slices/playerTwoSlice";
 import {
   toggleActive as togglePlayerOneActive,
   selectActive as selectPlayerOneActive,
-  incrementScore as incrementPlayerOneScore,
+  // incrementScore as incrementPlayerOneScore,
 } from "../slices/playerOneSlice";
 
-const GameBoard = () => {
+const GameBoard = ({ handleMatch }) => {
   const playingCards = useSelector(selectCards);
   const chosenCards = useSelector(selectChosenCards);
 
@@ -33,6 +33,9 @@ const GameBoard = () => {
     if (chosenCards.length === 2) {
       cardsMatch = checkMatch();
       console.log(cardsMatch);
+    }
+    if (cardsMatch) {
+      handleMatch();
     }
   }, [chosenCards]);
 
@@ -69,12 +72,12 @@ const GameBoard = () => {
     return matchResult;
   };
 
-  const handleMatch = () => {
-    // needs to remove cards from play and add points to relevant player
-    playerOneActive
-      ? dispatch(incrementPlayerOneScore())
-      : dispatch(incrementPlayerTwoScore());
-  };
+  // const handleMatch = () => {
+  //   // needs to remove cards from play and add points to relevant player
+  // playerOneActive
+  //   ? dispatch(incrementPlayerOneScore())
+  //   : dispatch(incrementPlayerTwoScore());
+  // };
 
   const handleClick = (event, cardData, cardId) => {
     event.preventDefault();
@@ -85,10 +88,7 @@ const GameBoard = () => {
     let cardsMatch;
     if (chosenCards.length === 2) {
       cardsMatch = checkMatch();
-    }
-
-    if (cardsMatch) {
-      handleMatch();
+      console.log(cardsMatch);
     }
   };
 
