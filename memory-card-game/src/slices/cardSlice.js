@@ -18,6 +18,9 @@ export const cardSlice = createSlice({
       state.cards[action.payload].isTurnedOver =
         !state.cards[action.payload].isTurnedOver;
     },
+    removeCardFromPlay: (state, action) => {
+      state.cards[action.payload].isRemoved = true;
+    },
   },
   selectors: {
     selectCards: (state) => state.cards,
@@ -30,7 +33,8 @@ export const cardSlice = createSlice({
   },
 });
 
-export const { loadCards, loadChosenCard, toggleCard } = cardSlice.actions;
+export const { loadCards, loadChosenCard, toggleCard, removeCardFromPlay } =
+  cardSlice.actions;
 
 export const { selectCards, selectOneCard, selectChosenCards, getCardIndex } =
   cardSlice.selectors;

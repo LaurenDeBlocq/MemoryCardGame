@@ -5,6 +5,7 @@ import {
   selectCards,
   selectChosenCards,
   toggleCard,
+  removeCardFromPlay,
 } from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -25,14 +26,12 @@ const GameBoard = ({ handleMatch }) => {
 
   const playerOneActive = useSelector(selectPlayerOneActive);
   const playerTwoActive = useSelector(selectPlayerTwoActive);
-  console.log(chosenCards, playerOneActive);
   const dispatch = useDispatch();
 
   useEffect(() => {
     let cardsMatch;
     if (chosenCards.length === 2) {
       cardsMatch = checkMatch();
-      console.log(cardsMatch);
     }
     if (cardsMatch) {
       handleMatch();
@@ -65,10 +64,19 @@ const GameBoard = ({ handleMatch }) => {
       matchResult = false;
     }
 
-    dispatch(toggleCard(playingCards.indexOf(cardOne)));
-    dispatch(toggleCard(playingCards.indexOf(cardTwo)));
-
-    toggleActivePlayer();
+    let nextTurn = false;
+    // setTimeout(() => {
+    nextTurn = true;
+    if (nextTurn) {
+      dispatch(toggleCard(playingCards.indexOf(cardOne)));
+      dispatch(toggleCard(playingCards.indexOf(cardTwo)));
+      toggleActivePlayer();
+    }
+    // }, [2000]);
+    if (matchResult) {
+      dispatch(removeCardFromPlay(playingCards.indexOf(cardOne)));
+      dispatch(removeCardFromPlay(playingCards.indexOf(cardTwo)));
+    }
     return matchResult;
   };
 
@@ -84,12 +92,6 @@ const GameBoard = ({ handleMatch }) => {
 
     toggleTurnedOver(cardId);
     dispatch(loadChosenCard(cardId));
-
-    let cardsMatch;
-    if (chosenCards.length === 2) {
-      cardsMatch = checkMatch();
-      console.log(cardsMatch);
-    }
   };
 
   const cardsToLoad = playingCards.map((card) => {

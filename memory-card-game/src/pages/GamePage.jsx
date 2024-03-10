@@ -31,7 +31,6 @@ const GamePage = () => {
   const dispatch = useDispatch();
 
   const handleMatch = () => {
-    console.log("match handled");
     // needs to remove cards from play and add points to relevant player
     playerOneActive
       ? dispatch(incrementPlayerOneScore())
@@ -47,7 +46,7 @@ const GamePage = () => {
       cardList[j] = k;
     }
     dispatch(loadCards(cardList));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -59,7 +58,9 @@ const GamePage = () => {
             alt="Image for player One"
           />
           <h2 className="game--player-name">{playerOneName}</h2>
-          <h3 className="game--player-score">{playerOneScore}</h3>
+          <h3 className="game--player-score" key="asdf">
+            {playerOneScore}
+          </h3>
         </div>
         <div className="game--game-block">
           <GameBoard className="game--game-board" handleMatch={handleMatch} />
@@ -71,7 +72,9 @@ const GamePage = () => {
             alt="Image for player Two"
           />
           <h2 className="game--player-name">{playerTwoName}</h2>
-          <h3 className="game--player-score">{playerTwoScore}</h3>
+          <h3 className="game--player-score" key="lkjh">
+            {playerTwoScore}
+          </h3>
         </div>
       </div>
     </>
