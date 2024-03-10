@@ -8,10 +8,23 @@ import {
 } from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import {
+  toggleActive as togglePlayerTwoActive,
+  // selectActive as selectPlayerTwoActive,
+  incrementScore as incrementPlayerTwoScore,
+} from "../slices/playerTwoSlice";
+import {
+  toggleActive as togglePlayerOneActive,
+  selectActive as selectPlayerOneActive,
+  incrementScore as incrementPlayerOneScore,
+} from "../slices/playerOneSlice";
 
 const GameBoard = () => {
   const playingCards = useSelector(selectCards);
   const chosenCards = useSelector(selectChosenCards);
+
+  const playerOneActive = useSelector(selectPlayerOneActive);
+
   console.log(chosenCards);
   const dispatch = useDispatch();
 
@@ -42,18 +55,37 @@ const GameBoard = () => {
 
     dispatch(toggleCard(playingCards.indexOf(cardOne)));
     dispatch(toggleCard(playingCards.indexOf(cardTwo)));
+
     return matchResult;
+  };
+
+  const toggleActivePlayer = () => {
+    dispatch(togglePlayerOneActive());
+    dispatch(togglePlayerTwoActive());
+  };
+
+  const handleMatch = () => {
+    // needs to remove cards from play and add points to relevant player
+    playerOneActive
+      ? dispatch(incrementPlayerOneScore())
+      : dispatch(incrementPlayerTwoScore());
   };
 
   const handleClick = (event, cardData, cardId) => {
     event.preventDefault();
-    dispatch(loadChosenCard(cardId));
+
     toggleTurnedOver(cardId);
+    dispatch(loadChosenCard(cardId));
+
     let cardsMatch;
     if (chosenCards.length === 2) {
       cardsMatch = checkMatch();
     }
-    console.log(cardsMatch);
+
+    if (cardsMatch) {
+      handleMatch();
+    }
+    toggleActivePlayer();
   };
 
   const cardsToLoad = playingCards.map((card) => {

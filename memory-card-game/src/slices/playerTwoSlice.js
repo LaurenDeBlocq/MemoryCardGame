@@ -14,13 +14,16 @@ export const playerTwoSlice = createSlice({
     incrementScore: (state) => {
       state.score += 2;
     },
+    toggleActive: (state) => {
+      state.active = !state.active;
+    },
   },
 });
 
-export const { setName, incrementScore } = playerTwoSlice.actions;
+export const { setName, incrementScore, toggleActive } = playerTwoSlice.actions;
 
 export const selectName = (state) => state.playerTwo.name;
-
 export const selectScore = (state) => state.playerTwo.score;
+export const selectActive = (state) => state.playerTwo.active;
 
 export default playerTwoSlice.reducer;

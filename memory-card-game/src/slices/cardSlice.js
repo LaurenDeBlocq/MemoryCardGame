@@ -18,7 +18,6 @@ export const cardSlice = createSlice({
       state.cards[action.payload].isTurnedOver =
         !state.cards[action.payload].isTurnedOver;
     },
-    clearChosenCards: (state, action) => {},
   },
   selectors: {
     selectCards: (state) => state.cards,

@@ -11,7 +11,8 @@ const Card = (props) => {
           props.handleClick(event, props.data, props.id);
         }}
         className="card--image"
-        src={props.data.isTurnedOver ? props.data.img : cardBack}
+        src={props.data.img}
+        // src={props.data.isTurnedOver ? props.data.img : cardBack}
         alt={
           props.data.isTurnedOver
             ? `image for ${props.data.number} of ${props.data.suit}`

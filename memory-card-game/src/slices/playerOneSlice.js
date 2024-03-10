@@ -5,22 +5,25 @@ export const playerOneSlice = createSlice({
   initialState: {
     name: "",
     score: 0,
-    active: false,
+    active: true,
   },
   reducers: {
     setName: (state, action) => {
       state.name = action.payload;
     },
-    getName: () => {},
     incrementScore: (state) => {
       state.score += 2;
+    },
+    toggleActive: (state) => {
+      state.active = !state.active;
     },
   },
 });
 
-export const { setName, incrementScore } = playerOneSlice.actions;
+export const { setName, incrementScore, toggleActive } = playerOneSlice.actions;
 
 export const selectName = (state) => state.playerOne.name;
 export const selectScore = (state) => state.playerOne.score;
+export const selectActive = (state) => state.playerOne.active;
 
 export default playerOneSlice.reducer;

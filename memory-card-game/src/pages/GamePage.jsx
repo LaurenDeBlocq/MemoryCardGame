@@ -16,9 +16,9 @@ import GameBoard from "../components/GameBoard";
 
 const GamePage = () => {
   const playerOneName = useSelector(selectPlayerOneName);
-  const playerTwoName = useSelector(selectPlayerTwoName);
-
   const playerOneScore = useSelector(selectPlayerOneScore);
+
+  const playerTwoName = useSelector(selectPlayerTwoName);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
   const dispatch = useDispatch();
 
@@ -97,6 +97,12 @@ const GamePage = () => {
           />
           <h2 className="game--player-name">{playerOneName}</h2>
           <h3 className="game--player-score">{playerOneScore}</h3>
+          <div
+            className="game--player-one-active"
+            // style={{ display: playerOneActive ? "block" : "none" }}
+          >
+            It&apos;s your turn!
+          </div>
         </div>
         <div className="game--game-block">
           <GameBoard className="game--game-board" />
@@ -109,6 +115,12 @@ const GamePage = () => {
           />
           <h2 className="game--player-name">{playerTwoName}</h2>
           <h3 className="game--player-score">{playerTwoScore}</h3>
+          <div
+            className="game--player-two-active"
+            // style={{ display: playerTwoActive ? "block" : "none" }}
+          >
+            It&apos;s your turn!
+          </div>
         </div>
       </div>
     </>
