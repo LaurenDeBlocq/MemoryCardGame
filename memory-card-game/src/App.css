@@ -49,14 +49,14 @@ body {
   justify-self: center;
 }
 
-.header--button-section {
+.header--link-section {
   grid-column: 3;
   display: flex;
   padding-right: 40px;
   justify-content: space-evenly;
 }
 
-.header--button {
+.header--link {
   padding: 16px;
   font-weight: 700;
   font-size: 20px;
@@ -66,13 +66,14 @@ body {
   border: none;
   color: white;
   box-shadow: none;
+  text-decoration: none;
 }
 
-.header--button-restart {
+.header--link-restart {
   background-color: #f4a236;
 }
 
-.header--button-exit {
+.header--link-exit {
   background-color: #d4190c;
 }
 

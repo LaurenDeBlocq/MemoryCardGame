@@ -4,7 +4,6 @@ import playerTwoImage from "../resources/images/player2.png";
 import {
   selectName as selectPlayerTwoName,
   selectScore as selectPlayerTwoScore,
-  // selectActive as selectPlayerTwoActive,
   incrementScore as incrementPlayerTwoScore,
 } from "../slices/playerTwoSlice";
 import {
@@ -34,7 +33,6 @@ const GamePage = () => {
   const playerTwoScore = useSelector(selectPlayerTwoScore);
   const chosenCards = useSelector(selectChosenCardsIndex);
 
-  console.log(chosenCards);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -46,7 +44,6 @@ const GamePage = () => {
   }, [playerOneScore, playerTwoScore, navigate]);
 
   const handleMatch = () => {
-    // needs to remove cards from play and add points to relevant player
     playerOneActive
       ? dispatch(incrementPlayerOneScore())
       : dispatch(incrementPlayerTwoScore());
@@ -76,9 +73,7 @@ const GamePage = () => {
             alt="Image for player One"
           />
           <h2 className="game--player-name">{playerOneName}</h2>
-          <h3 className="game--player-score" key="asdf">
-            {playerOneScore}
-          </h3>
+          <h3 className="game--player-score">{playerOneScore}</h3>
         </div>
         <div className="game--game-block">
           <GameBoard className="game--game-board" handleMatch={handleMatch} />
@@ -90,9 +85,7 @@ const GamePage = () => {
             alt="Image for player Two"
           />
           <h2 className="game--player-name">{playerTwoName}</h2>
-          <h3 className="game--player-score" key="lkjh">
-            {playerTwoScore}
-          </h3>
+          <h3 className="game--player-score">{playerTwoScore}</h3>
         </div>
       </div>
     </>

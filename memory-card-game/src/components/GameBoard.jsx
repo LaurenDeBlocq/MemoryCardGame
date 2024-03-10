@@ -12,12 +12,10 @@ import { useEffect } from "react";
 import {
   toggleActive as togglePlayerTwoActive,
   selectActive as selectPlayerTwoActive,
-  // incrementScore as incrementPlayerTwoScore,
 } from "../slices/playerTwoSlice";
 import {
   toggleActive as togglePlayerOneActive,
   selectActive as selectPlayerOneActive,
-  // incrementScore as incrementPlayerOneScore,
 } from "../slices/playerOneSlice";
 
 const GameBoard = ({ handleMatch }) => {
@@ -73,13 +71,6 @@ const GameBoard = ({ handleMatch }) => {
 
     return matchResult;
   };
-
-  // const handleMatch = () => {
-  //   // needs to remove cards from play and add points to relevant player
-  // playerOneActive
-  //   ? dispatch(incrementPlayerOneScore())
-  //   : dispatch(incrementPlayerTwoScore());
-  // };
 
   const handleClick = (event, cardData, cardId) => {
     event.preventDefault();
