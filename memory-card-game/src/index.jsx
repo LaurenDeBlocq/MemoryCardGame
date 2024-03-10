@@ -8,6 +8,7 @@ import App from "./App";
 import ErrorPage from "./error-page";
 import StartPage from "./pages/StartPage";
 import GamePage from "./pages/GamePage";
+import Leaderboard from "./pages/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +24,10 @@ const router = createBrowserRouter([
         path: "game/",
         element: <GamePage />,
       },
-      // {
-      //   path: "leaderboard",
-      //   element: <EndPage />,
-      // },
+      {
+        path: "leaderboard",
+        element: <Leaderboard />,
+      },
     ],
   },
 ]);
