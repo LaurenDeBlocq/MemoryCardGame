@@ -18,13 +18,14 @@ export const cardSlice = createSlice({
       state.cards[action.payload].isTurnedOver =
         !state.cards[action.payload].isTurnedOver;
     },
-    // clearChosenCards: (state) => {
-    //   state.chosen = [];
-    // },
+    clearChosenCards: (state, action) => {},
   },
   selectors: {
     selectCards: (state) => state.cards,
     selectOneCard: (state, cardIndex) => state.cards[cardIndex],
+    getCardIndex: (state, action) => {
+      state.cards.indexOf(action.payload);
+    },
     selectChosenCards: (state) =>
       state.cards.filter((card) => card.isTurnedOver),
   },
@@ -32,7 +33,7 @@ export const cardSlice = createSlice({
 
 export const { loadCards, loadChosenCard, toggleCard } = cardSlice.actions;
 
-export const { selectCards, selectOneCard, selectChosenCards } =
+export const { selectCards, selectOneCard, selectChosenCards, getCardIndex } =
   cardSlice.selectors;
 
 export default cardSlice.reducer;
