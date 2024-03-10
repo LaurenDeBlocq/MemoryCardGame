@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const playerOneSlice = createSlice({
   name: "playerOne",
   initialState: {
-    name: "Lau",
-    score: 50,
+    name: "playerOne",
+    score: 0,
     active: true,
   },
   reducers: {
