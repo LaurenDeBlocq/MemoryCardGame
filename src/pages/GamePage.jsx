@@ -68,14 +68,18 @@ const GamePage = () => {
   return (
     <>
       <div className="game">
-        <div className="game--player-block">
+        <div className="game--player-block game--player-one-block">
           <img
             className="game--player-img"
             src={playerOneImage}
             alt="Image for player One"
           />
-          <h2 className="game--player-name">{playerOneName}</h2>
-          <h3 className="game--player-score">{playerOneScore}</h3>
+          <h2 className="game--player-name game--player-text">
+            {playerOneName}
+          </h2>
+          <h3 className="game--player-score game--player-text">
+            {playerOneScore}
+          </h3>
           <div
             className="game--active-player game--player-one-active"
             style={{ display: playerOneActive ? "block" : "none" }}
@@ -86,7 +90,7 @@ const GamePage = () => {
         <div className="game--game-block">
           <GameBoard className="game--game-board" handleMatch={handleMatch} />
         </div>
-        <div className="game--player-block">
+        <div className="game--player-block game--player-two-block">
           <img
             className="game--player-img"
             src={playerTwoImage}
