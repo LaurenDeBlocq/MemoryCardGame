@@ -1,8 +1,36 @@
-# React + Vite
+# Hello Specno!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Here you'll find my version of the memory based matching game challenge.
 
-Currently, two official plugins are available:
+## Set up required:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In order to run this repo, please run one of the following commands:
+
+The command for if you don't have an SSH key configured:
+
+```
+git clone https://github.com/LaurenDeBlocq/MemoryCardGame.git
+```
+
+The command for if you do have an SSH key configured:
+
+```
+git@github.com:LaurenDeBlocq/MemoryCardGame.git
+```
+
+Once that is complete, please run the following commands one at a time:
+
+```
+npm install
+npm run dev
+```
+
+Upon running `npm run dev`, a localhost url should be provided which you can then run in your browser and see the app!
+
+## Rules of the game:
+
+1. Each player takes turns to pick 2 cards to flip over from the layout in front of them
+2. If the cards match, the player wins 2 points (one for each card) and the cards are removed from play.
+3. If the cards do not match, they must be flipped back over and stay in the same position that they started in.
+4. The game ends when all the cards have been matched.
+5. The player with the most matches wins! 🏆
