@@ -5,6 +5,7 @@ import {
   selectName as selectPlayerTwoName,
   selectScore as selectPlayerTwoScore,
   incrementScore as incrementPlayerTwoScore,
+  selectActive as selectPlayerTwoActive,
 } from "../slices/playerTwoSlice";
 import {
   selectName as selectPlayerOneName,
@@ -28,6 +29,7 @@ const GamePage = () => {
   const playerOneScore = useSelector(selectPlayerOneScore);
 
   const playerOneActive = useSelector(selectPlayerOneActive);
+  const playerTwoActive = useSelector(selectPlayerTwoActive);
 
   const playerTwoName = useSelector(selectPlayerTwoName);
   const playerTwoScore = useSelector(selectPlayerTwoScore);
@@ -74,6 +76,12 @@ const GamePage = () => {
           />
           <h2 className="game--player-name">{playerOneName}</h2>
           <h3 className="game--player-score">{playerOneScore}</h3>
+          <div
+            className="game--active-player game--player-one-active"
+            style={{ display: playerOneActive ? "block" : "none" }}
+          >
+            It&apos;s your turn!
+          </div>
         </div>
         <div className="game--game-block">
           <GameBoard className="game--game-board" handleMatch={handleMatch} />
@@ -86,6 +94,12 @@ const GamePage = () => {
           />
           <h2 className="game--player-name">{playerTwoName}</h2>
           <h3 className="game--player-score">{playerTwoScore}</h3>
+          <div
+            className="game--active-player game--player-two-active"
+            style={{ display: playerTwoActive ? "block" : "none" }}
+          >
+            It&apos;s your turn!
+          </div>
         </div>
       </div>
     </>

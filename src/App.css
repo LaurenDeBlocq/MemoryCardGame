@@ -1,7 +1,9 @@
 body {
   background-image: url("./resources/images/background.png");
-  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
 #root {
@@ -37,7 +39,7 @@ body {
 /* Header Styling */
 .header {
   display: grid;
-  grid-template-columns: 480px 480px 480px;
+  grid-template-columns: 33% 33% 33%;
   padding-top: 32px;
 }
 
@@ -194,18 +196,6 @@ body {
 
   font-size: 28px;
   font-weight: 700;
-}
-
-.game--player-one-active {
-  position: fixed;
-  bottom: 220px;
-  left: 50px;
-}
-
-.game--player-two-active {
-  position: fixed;
-  bottom: 220px;
-  right: 50px;
 }
 
 /* Leaderboard styling */

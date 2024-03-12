@@ -9,21 +9,13 @@ import {
 } from "../slices/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  toggleActive as togglePlayerTwoActive,
-  selectActive as selectPlayerTwoActive,
-} from "../slices/playerTwoSlice";
-import {
-  toggleActive as togglePlayerOneActive,
-  selectActive as selectPlayerOneActive,
-} from "../slices/playerOneSlice";
+import { toggleActive as togglePlayerTwoActive } from "../slices/playerTwoSlice";
+import { toggleActive as togglePlayerOneActive } from "../slices/playerOneSlice";
 
 const GameBoard = ({ handleMatch }) => {
   const playingCards = useSelector(selectCards);
   const chosenCards = useSelector(selectChosenCards);
 
-  const playerOneActive = useSelector(selectPlayerOneActive);
-  const playerTwoActive = useSelector(selectPlayerTwoActive);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -72,7 +64,7 @@ const GameBoard = ({ handleMatch }) => {
     return matchResult;
   };
 
-  const handleClick = (event, cardData, cardId) => {
+  const handleClick = (event, cardId) => {
     event.preventDefault();
 
     toggleTurnedOver(cardId);
@@ -89,23 +81,7 @@ const GameBoard = ({ handleMatch }) => {
       />
     );
   });
-  return (
-    <>
-      <div
-        className="game--active-player game--player-one-active"
-        style={{ display: playerOneActive ? "block" : "none" }}
-      >
-        It&apos;s your turn!
-      </div>
-      {cardsToLoad}
-      <div
-        className="game--active-player game--player-two-active"
-        style={{ display: playerTwoActive ? "block" : "none" }}
-      >
-        It&apos;s your turn!
-      </div>
-    </>
-  );
+  return <>{cardsToLoad}</>;
 };
 
 export default GameBoard;
