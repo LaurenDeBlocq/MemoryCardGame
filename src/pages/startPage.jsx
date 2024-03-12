@@ -20,40 +20,42 @@ const StartPage = () => {
 
   return (
     <>
-      <h1 className="start-page--text">Are you ready to play?</h1>
-      <div className="start-page--player-container">
-        <div className="start-page--player-one start-page--player-block">
-          <img
-            className="start-page--player-image"
-            src={playerOne}
-            alt="player 1 image"
-          />
-          <input
-            className="start-page--input"
-            id="player-one-name"
-            type="text"
-            placeholder="name of player 1"
-          />
+      <div className="start-page">
+        <h1 className="start-page--text">Are you ready to play?</h1>
+        <div className="start-page--player-container">
+          <div className="start-page--player-one start-page--player-block">
+            <img
+              className="start-page--player-image"
+              src={playerOne}
+              alt="player 1 image"
+            />
+            <input
+              className="start-page--input"
+              id="player-one-name"
+              type="text"
+              placeholder="name of player 1"
+            />
+          </div>
+          <div className="start-page--player-two start-page--player-block">
+            <img
+              className="start-page--player-image"
+              src={playerTwo}
+              alt="player 2 image"
+            />
+            <input
+              className="start-page--input"
+              id="player-two-name"
+              type="text"
+              placeholder="name of player 2"
+            />
+          </div>
         </div>
-        <div className="start-page--player-two start-page--player-block">
-          <img
-            className="start-page--player-image"
-            src={playerTwo}
-            alt="player 2 image"
-          />
-          <input
-            className="start-page--input"
-            id="player-two-name"
-            type="text"
-            placeholder="name of player 2"
-          />
-        </div>
+        <Link to={"game/"}>
+          <button className="start-page--start-button" onClick={handleStart}>
+            Let&apos;s play!
+          </button>
+        </Link>
       </div>
-      <Link to={"game/"}>
-        <button className="start-page--start-button" onClick={handleStart}>
-          Let&apos;s play!
-        </button>
-      </Link>
     </>
   );
 };
