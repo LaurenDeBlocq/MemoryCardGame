@@ -1,6 +1,6 @@
 # Hello Specno!
 
-Here you'll find my version of the memory based matching game challenge.
+[Here](https://lauren-de-blocq-memory-game.web.app/game/) you'll find the hosted version of my version of the memory based matching game challenge!
 
 ## Set up required:
 
